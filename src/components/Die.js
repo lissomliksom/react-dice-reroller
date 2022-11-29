@@ -1,14 +1,13 @@
-import Dice1 from '../assets/images/dice-1.svg';
-import Dice2 from '../assets/images/dice-2.svg';
-import Dice3 from '../assets/images/dice-3.svg';
-import Dice4 from '../assets/images/dice-4.svg';
-import Dice5 from '../assets/images/dice-5.svg';
-import Dice6 from '../assets/images/dice-6.svg';
+import Dice1 from "../assets/images/dice-1.svg";
+import Dice2 from "../assets/images/dice-2.svg";
+import Dice3 from "../assets/images/dice-3.svg";
+import Dice4 from "../assets/images/dice-4.svg";
+import Dice5 from "../assets/images/dice-5.svg";
+import Dice6 from "../assets/images/dice-6.svg";
 
-const Die = ({ diceValue, setDiceValue, isRolling, setIsRolling, action }) => {
-
+const Die = ({ diceValue, setDiceValue, isRolling, setIsRolling, onClick }) => {
   const showDice = (num) => {
-    switch(num) {
+    switch (num) {
       case 1:
         return Dice1;
       case 2:
@@ -27,11 +26,11 @@ const Die = ({ diceValue, setDiceValue, isRolling, setIsRolling, action }) => {
   };
 
   return (
-    <button onClick={() => action()}>
-      <img 
+    <button onClick={onClick}>
+      <img
         src={showDice(diceValue)}
         alt={`dice ${diceValue}`}
-        className={`h-20 w-20 ${isRolling ? 'animate-shake' : ''}`}
+        className={`h-20 w-20 ${isRolling ? "animate-shake" : ""}`}
       />
     </button>
   );
