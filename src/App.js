@@ -43,8 +43,6 @@ function App() {
         setDiceValue={setDiceValue} 
         isRolling={isRolling} 
         setIsRolling={setIsRolling} 
-        selectedDie={selectedDie}
-        setSelectedDie={setSelectedDie}
       />
 
       <DiceButton action={handleButtonClick}/>
