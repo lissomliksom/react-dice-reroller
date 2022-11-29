@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 
 import DiceContainer from "./components/DiceContainer";
 import DiceButton from "./components/DiceButton";
@@ -61,6 +61,21 @@ function App() {
     },
     [playAudio]
   );
+
+  useEffect(() => {
+    const keyDownHandler = (event) => {
+      if (event.key === "Enter") {
+        event.preventDefault();
+        rollAllDice();
+      }
+    };
+
+    document.addEventListener("keydown", keyDownHandler);
+
+    return () => {
+      document.removeEventListener("keydown", keyDownHandler);
+    };
+  }, []);
 
   return (
     <div className="flex items-center justify-center min-h-screen">
